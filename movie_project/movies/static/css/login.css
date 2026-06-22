@@ -1,0 +1,38 @@
+body {
+    background: #1b1b1b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial;
+}
+
+.login-box {
+    background: #2b2b2b;
+    padding: 40px;
+    border-radius: 10px;
+    width: 350px;
+    text-align: center;
+}
+
+h1 {
+    color: gold;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: crimson;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}

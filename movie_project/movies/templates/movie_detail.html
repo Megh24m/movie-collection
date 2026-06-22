@@ -1,0 +1,188 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ movie.movie_name }}</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/movie_detail.css' %}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            🎬 Movie Collection
+        </div>
+
+        <div class="nav-links">
+
+            <div>
+                 <a href="{% url 'movie_list' %}">
+                Home
+            </a>
+            </div>
+           
+            <div>
+            <a href="{% url 'movie_list' %}">
+                Movies
+            </a>
+            </div>
+            
+
+        </div>
+
+    </nav>
+
+    <div class="movie-container">
+
+        <div class="movie-top-section">
+
+            <!-- POSTER -->
+            <div class="poster-section">
+
+                {% if movie.image %}
+                <img src="{{ movie.image.url }}"
+                     alt="{{ movie.movie_name }}"
+                     class="movie-poster">
+                {% endif %}
+
+            </div>
+
+            <!-- DETAILS -->
+            <div class="details-section">
+
+                <h1 class="movie-title">
+                    {{ movie.movie_name }}
+                </h1>
+
+                <p>
+                    <strong>Genre:</strong>
+                    {{ movie.genre.name }}
+                </p>
+
+                <p>
+                    <strong>Language:</strong>
+                    {{ movie.language.name }}
+                </p>
+
+                {% if movie.director %}
+                <p>
+                    <strong>Director:</strong>
+                    {{ movie.director }}
+                </p>
+                {% endif %}
+
+                <p>
+                    <strong>Released Year:</strong>
+                    {{ movie.released_year }}
+                </p>
+
+                {% if movie.collection %}
+                <p>
+                    <strong>Collection:</strong>
+                    {{ movie.collection }}
+                </p>
+                {% endif %}
+
+                <p>
+                    <strong>Rating:</strong>
+                    ⭐ {{ movie.rating }}
+                </p>
+
+                {% if movie.actor %}
+                <p>
+                    <strong>Actor:</strong>
+                    {{ movie.actor }}
+                </p>
+                {% endif %}
+
+                {% if movie.actress %}
+                <p>
+                    <strong>Actress:</strong>
+                    {{ movie.actress }}
+                </p>
+                {% endif %}
+
+                <!-- TRAILER -->
+                {% if movie.trailer_url %}
+                <p>
+                    <strong>Trailer:</strong>
+
+                    <a href="{{ movie.trailer_url }}"
+                       target="_blank"
+                       class="trailer-link">
+
+                        Watch Trailer
+
+                    </a>
+                </p>
+                {% endif %}
+                <!-- WISHLIST BUTTON -->
+                {% if is_favorite %}
+
+                    <a href="{% url 'remove_favorite' movie.id %}"
+                       class="wishlist-btn">
+
+                        Remove From Wishlist
+
+                    </a>
+
+               {% else %}
+
+                <a href="{% url 'add_to_favorite' movie.id %}"
+                   class="wishlist-btn">
+
+                    Add To Wishlist
+
+                </a>
+
+                {% endif %} 
+
+            </div>
+
+        </div>
+
+        <!-- RELATED MOVIES -->
+        <div class="related-section">
+
+            <h2>Related Movies</h2>
+
+            <div class="related-grid">
+
+                {% for related_movie in related_movies %}
+
+                <div class="related-card">
+
+                    <a href="{% url 'movie_detail' related_movie.id %}">
+
+                        {% if related_movie.image %}
+                        <img src="{{ related_movie.image.url }}"
+                             alt="{{ related_movie.movie_name }}"
+                             class="related-image">
+                        {% endif %}
+
+                        <h4>
+                            {{ related_movie.movie_name }}
+                        </h4>
+
+                    </a>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

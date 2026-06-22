@@ -1,0 +1,163 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Movie Collection</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/movie_list.css' %}">
+</head>
+
+<body>
+    
+    <!-- TOP BUTTONS -->
+    <div class="top-links">
+
+    <a href="{% url 'logout' %}"
+       class="logout-link">
+
+        Logout
+
+    </a>
+
+    <a href="{% url 'wishlist' %}"
+       class="logout-link">
+
+         My Wishlist
+
+    </a>
+
+</div>
+    <!-- TOP FEATURE BAR -->
+    <div class="feature-bar">
+
+        <a href="?filter=top">
+            Top Rated
+        </a>
+
+        <a href="?filter=popular">
+            Popular Movies
+        </a>
+
+        <a href="?filter=new">
+            New Releases
+        </a>
+
+    </div>
+
+    <!-- TITLE -->
+    <h1 class="title">
+        🎬 Movie Collection
+    </h1>
+
+    <!-- SEARCH SECTION -->
+    <div class="search-container">
+
+        <form method="GET">
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Search movies..."
+                value="{{ search }}"
+            >
+
+            <select name="language">
+
+                <option value="">
+                    All Languages
+                </option>
+
+                {% for language in languages %}
+                <option
+                    value="{{ language.id }}"
+                    {% if selected_language == language.id|stringformat:"s" %}
+                    selected
+                    {% endif %}
+                >
+                    {{ language.name }}
+                </option>
+                {% endfor %}
+
+            </select>
+
+            <select name="genre">
+
+                <option value="">
+                    All Genres
+                </option>
+
+                {% for genre in genres %}
+                <option
+                    value="{{ genre.id }}"
+                    {% if selected_genre == genre.id|stringformat:"s" %}
+                    selected
+                    {% endif %}
+                >
+                    {{ genre.name }}
+                </option>
+                {% endfor %}
+
+            </select>
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- MOVIE GRID -->
+    <div class="movie-grid">
+
+        {% for movie in movies %}
+
+        <div class="movie-card">
+
+            <a href="{% url 'movie_detail' movie.id %}">
+
+                {% if movie.image %}
+                <img
+                    src="{{ movie.image.url }}"
+                    alt="{{ movie.movie_name }}"
+                    class="movie-image"
+                >
+                {% endif %}
+
+                <div class="movie-info">
+
+                    <h3>
+                        {{ movie.movie_name }}
+                    </h3>
+
+                    <p>
+                        🌐 {{ movie.language.name }}
+                    </p>
+
+                    <div class="rating">
+                        ⭐ {{ movie.rating }}
+                    </div>
+
+                </div>
+
+            </a>
+
+        </div>
+
+        {% empty %}
+
+        <p>No movies found.</p>
+
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>

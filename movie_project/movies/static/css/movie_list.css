@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    background: #4E342E;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 30px;
+}
+
+
+/* TOP BUTTONS */
+.logout-container {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+/* TOP RIGHT BUTTONS */
+.top-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logout-link {
+    color: #EED9C4;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.logout-link:hover {
+    color: #ffcc00;
+}
+
+/* FEATURE BAR */
+.feature-bar {
+    width: 75%;
+    margin: auto;
+
+    background: #6D4C41;
+
+    border: 1px solid #2b2b2b;
+
+    border-radius: 50px;
+
+    padding: 22px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+
+    margin-bottom: 40px;
+}
+
+.feature-bar a {
+    text-decoration: none;
+    color: #d7d7d7;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.feature-bar a:hover {
+    color: #ffcc00;
+}
+
+
+/* TITLE */
+.title {
+    text-align: center;
+    font-size: 58px;
+    color: #ffcc00;
+    margin-bottom: 35px;
+}
+
+
+/* SEARCH SECTION */
+.search-container {
+    width: 70%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.search-container form {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.search-container input,
+.search-container select {
+    padding: 14px;
+    width: 220px;
+
+    border: 1px solid #333;
+    border-radius: 12px;
+
+    background: #1a1a1a;
+    color: white;
+    font-size: 16px;
+}
+
+.search-container button {
+    background: #ff4757;
+    color: white;
+
+    border: none;
+    border-radius: 12px;
+
+    padding: 14px 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.search-container button:hover {
+    background: #ffcc00;
+    color: black;
+}
+
+
+/* MOVIE GRID */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+
+/* MOVIE CARD */
+.movie-card {
+    width: 190px;
+    background: #161616;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.movie-card:hover {
+    transform: translateY(-6px);
+}
+
+.movie-card a {
+    text-decoration: none;
+    color: white;
+}
+
+
+/* POSTER */
+.movie-image {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+
+/* MOVIE INFO */
+.movie-info {
+    padding: 12px;
+    text-align: center;
+}
+
+.movie-info h3 {
+    font-size: 18px;
+    color: #ffcc00;
+    margin-bottom: 8px;
+}
+
+.movie-info p {
+    font-size: 14px;
+    color: #cccccc;
+    margin-bottom: 6px;
+}
+
+.rating {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+/* ==========================
+   WISHLIST PAGE
+========================== */
+
+.wishlist-checkbox {
+    width: 20px;
+    height: 20px;
+    margin: 12px;
+    cursor: pointer;
+}
+
+/* BUTTON AREA */
+.wishlist-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+/* REMOVE SELECTED BUTTON */
+.wishlist-btn {
+
+    background: #6D4C41;
+    color: #EED9C4;
+
+    border: none;
+    padding: 14px 28px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+/* CLEAR WISHLIST BUTTON */
+.clear-btn {
+
+    background: #6D4C41;
+    color: #EED9C4;
+
+    padding: 14px 28px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* HOVER EFFECT */
+.wishlist-btn:hover,
+.clear-btn:hover {
+
+    color: #ffcc00;
+}

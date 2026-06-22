@@ -1,0 +1,157 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Wishlist</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/movie_list.css' %}">
+
+</head>
+
+<body>
+
+    <!-- BACK BUTTON -->
+    <div class="top-links">
+
+        <a href="{% url 'movie_list' %}"
+           class="logout-link">
+
+            ← Back To Movies
+
+        </a>
+
+    </div>
+
+    <h1 class="title">
+         My Wishlist
+    </h1>
+
+    <!-- FORM -->
+    <form method="POST"
+          action="{% url 'remove_selected_favorites' %}">
+
+        {% csrf_token %}
+
+        <!-- ACTION BUTTONS -->
+        <div style="margin-bottom:30px; text-align:center;">
+
+            <label
+                style="font-size:20px; font-weight:bold;">
+
+                <input
+                    type="checkbox"
+                    id="select-all"
+                >
+
+                Select All
+
+            </label>
+
+            <button type="submit"
+                    class="wishlist-btn">
+
+                Remove Selected
+
+            </button>
+
+            <a href="{% url 'clear_wishlist' %}"
+               class="clear-btn">
+
+                Delete All
+
+            </a>
+
+        </div>
+
+        <!-- MOVIE GRID -->
+        <div class="movie-grid">
+
+            {% for favorite in favorites %}
+
+            <div class="movie-card">
+
+                <!-- CHECKBOX -->
+                <div style="padding:10px;">
+
+                    <input
+                        type="checkbox"
+                        name="selected_movies"
+                        value="{{ favorite.movie.id }}"
+                        class="wishlist-checkbox"
+                    >
+
+                </div>
+
+                <!-- MOVIE CARD -->
+                <a href="{% url 'movie_detail' favorite.movie.id %}">
+
+                    {% if favorite.movie.image %}
+                    <img
+                        src="{{ favorite.movie.image.url }}"
+                        class="movie-image"
+                    >
+                    {% endif %}
+
+                    <div class="movie-info">
+
+                        <h3>
+                            {{ favorite.movie.movie_name }}
+                        </h3>
+
+                        <p>
+                            ⭐ {{ favorite.movie.rating }}
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            {% empty %}
+
+            <h2>
+                No favorite movies yet
+            </h2>
+
+            {% endfor %}
+
+        </div>
+
+    </form>
+
+    <!-- SELECT ALL SCRIPT -->
+    <script>
+
+        const selectAll =
+            document.getElementById(
+                "select-all"
+            );
+
+        selectAll.addEventListener(
+            "change",
+            function () {
+
+                const checkboxes =
+                    document.querySelectorAll(
+                        ".wishlist-checkbox"
+                    );
+
+                checkboxes.forEach(
+                    checkbox => {
+
+                        checkbox.checked =
+                            this.checked;
+                    }
+                );
+            }
+        );
+
+    </script>
+
+</body>
+</html>

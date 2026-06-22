@@ -258,4 +258,4 @@ http://127.0.0.1:8000/
 
 Meghana M
 
-Built using Django, Python, HTML, CSS, SQLite, and Pillow. """
+Built using Django, Python, HTML, CSS, SQLite, and Pillow.

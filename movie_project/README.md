@@ -1,17 +1,17 @@
- """ Movie Collection
+  # Movie Collection
 
 A Django-based Movie Collection web application where users can browse movies, search and filter them, view detailed information, discover related movies, and manage a personal wishlist.
 
- Features
+## Features
 
- User Authentication
+ #### User Authentication
 
 * User Registration
 * User Login
 * User Logout
 * Automatic Login After Registration
 
- Movie Management
+ #### Movie Management
 
 * Browse All Movies
 * Movie Poster Display
@@ -20,7 +20,7 @@ A Django-based Movie Collection web application where users can browse movies, s
 * Related Movies Section
 * Trailer Links
 
- Search and Filter
+ #### Search and Filter
 
 * Search Movies by Name
 * Filter by Language
@@ -29,7 +29,7 @@ A Django-based Movie Collection web application where users can browse movies, s
 * Popular Movies
 * New Releases
 
- Wishlist System
+#### Wishlist System
 
 * Add Movies to Wishlist
 * Remove Movies from Wishlist
@@ -40,12 +40,12 @@ A Django-based Movie Collection web application where users can browse movies, s
 * Delete Entire Wishlist
 * Select All Option
 
- Recommendation System
+#### Recommendation System
 
 * Related Movies Based on Genre
 * Quick Navigation Between Similar Movies
 
- User Interface
+ #### User Interface
 
 * Responsive Movie Cards
 * Modern Dark Theme
@@ -55,7 +55,7 @@ A Django-based Movie Collection web application where users can browse movies, s
 * Organized Wishlist Dashboard
 * Clean Authentication Pages
 
- Technology Stack
+## Technology Stack
 
  Backend
 
@@ -80,8 +80,8 @@ A Django-based Movie Collection web application where users can browse movies, s
 * Pillow
 * Django Media Files
 
- Project Structure
-
+ ## Project Structure
+```text
 Movie-Collection/
 
 ├── movie_project/
@@ -124,10 +124,10 @@ Movie-Collection/
 ├── db.sqlite3
 ├── manage.py
 └── README.md
+```
 
-
- Application Workflow
-
+ ## Application Workflow
+```text
 User Registration
       ↓
 User Login
@@ -143,10 +143,9 @@ Add Movies To Wishlist
 Manage Wishlist
       ↓
 Explore Related Movies
+```
 
-
- Movie Information
-
+## Movie Information
 Each movie record contains:
 
 * Movie Name
@@ -162,9 +161,8 @@ Each movie record contains:
 * Poster Image
 * Created Date
 
- Wishlist Workflow
-
-
+ ## Wishlist Workflow
+```text
 Add Movie
     ↓
 Wishlist
@@ -176,49 +174,49 @@ Select All Movies
 Delete Selected
          OR
 Delete All
+```
 
+ ## Installation
 
- Installation
-
- Clone Repository
+### Clone Repository
 
 git clone https://github.com/your-username/movie-collection.git
 
 cd movie-collection
 
 
- Create Virtual Environment
+### Create Virtual Environment
 
 python -m venv venv
 
 
- Activate Virtual Environment (Windows)
+### Activate Virtual Environment (Windows)
 
 venv\Scripts\activate
 
 
- Install Dependencies
+### Install Dependencies
 
 pip install django pillow
 
- Apply Migrations
+### Apply Migrations
 
 python manage.py makemigrations
 
 python manage.py migrate
 
- Create Superuser
+### Create Superuser
 
 python manage.py createsuperuser
 
- Run Development Server
+### Run Development Server
 
 python manage.py runserver
 
 Open:
 http://127.0.0.1:8000/
 
- Screenshots
+ ## Screenshots
 
 * Home Page
 * Search and Filters
@@ -229,7 +227,7 @@ http://127.0.0.1:8000/
 * Wishlist Page
 * Select and Delete Wishlist Items
 
- Key Highlights
+## Key Highlights
 
 * User Authentication System
 * Search and Filter Functionality
@@ -242,7 +240,7 @@ http://127.0.0.1:8000/
 * Secure Access Control
 * Organized Database Structure
 
- Future Enhancements
+## Future Enhancements
 
 * Movie Reviews and Comments
 * User Ratings
@@ -256,7 +254,7 @@ http://127.0.0.1:8000/
 * Dark and Light Mode Toggle
 * Mobile Responsive Optimization
 
- Author
+## Author
 
 Meghana M
 
